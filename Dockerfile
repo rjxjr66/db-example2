@@ -4,7 +4,9 @@ WORKDIR /app
 
 ADD ./package.json .
 ADD ./npm-shrinkwrap.json .
-RUN npm install
+ADD ./tsconfig.build.json .
+ADD ./tsconfig.json .
+
 ADD ./src .
 
-CMD [ "node", "main.js" ]
+CMD [ "npm", "run", "start:prod" ]
