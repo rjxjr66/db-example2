@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PhotoModule } from './photo/photo.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { PhotoModule } from './photo/photo.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    PhotoModule
+    PhotoModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -15,7 +15,7 @@ services:
       - MYSQL_USERNAME=root
       - MYSQL_PASSWORD=password
     volumes:
-      - //repo/db-example2/src:/app/src
+      - ./src:/app/src
     command: npm run start:dev
   db:
     image: mysql
