@@ -16,6 +16,8 @@ services:
       - MYSQL_PASSWORD=password
     volumes:
       - ./:/app/
+    command: 
+      - npm run start:dev
   db:
     image: mysql
     container_name: example-db
