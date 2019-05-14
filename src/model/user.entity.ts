@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Photo } from '.';
 
 @Entity()
 export class User {
@@ -21,5 +22,9 @@ export class User {
   views: number;
 
   @Column()
-  isPublished: boolean;
+  is: boolean;
+
+  @ManyToMany(type => Photo, photo => photo.users)
+  @JoinTable()
+  photos: Photo[];
 }

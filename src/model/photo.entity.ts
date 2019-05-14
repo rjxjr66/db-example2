@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, ManyToMany } from 'typeorm';
+import { User } from './user.entity';
 
 @Entity()
 export class Photo {
@@ -22,4 +23,7 @@ export class Photo {
 
   @Column()
   isPublished: boolean;
+
+  @ManyToMany(type => User, user => user.photos)
+  users: User[];
 }
