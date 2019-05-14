@@ -14,4 +14,8 @@ export class UserService {
     findAll() {
         return this.userRepository.find({ relations: [ 'photos' ] });
     }
+
+    save(user) {
+        return this.userRepository.save(user);
+    }
 }
